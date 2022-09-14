@@ -9,14 +9,19 @@ It is used to make managing a hotel easy using its simple-to-use UI and MySQL in
 ## Language used 
 
 Python
+
 SQL 
 
 ## Python Modules used
 
 PANDAS 
+
 Matplotlib
+
 Tkinter 
+
 mysql-connector
+
 sv_ttk 
 
 ## Contributions
