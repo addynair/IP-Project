@@ -53,6 +53,7 @@ while True:
     menu1 = int(input("Enter the required selection: "))
 
     if menu1 == 0: 
+        print("Bye")
         break 
 
     elif menu1 == 1:
