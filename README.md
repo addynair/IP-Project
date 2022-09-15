@@ -26,4 +26,4 @@ sv_ttk
 
 ## Contributions
 
-Pull requests are very much appreciated. Do open discussions before making major changes (commiting them to the master branch)
+Pull requests are very much appreciated. Do open discussions before making major changes (commiting them to the main branch)
