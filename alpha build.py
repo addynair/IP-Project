@@ -43,26 +43,26 @@ def StaffSalary():
    
 
 def AddGuest():
-    L=[]
+    data=[]
     gid= input('Enter the new GuestID: ')
-    L.append(gid)
+    data.append(gid)
     name= input('Enter the name of the Guest: ')
-    L.append(name)
+    data.append(name)
     rType=input('Enter the typr of room required (Single/Double): ' )
-    L.append(rType)
+    data.append(rType)
     cid=input('Enter the check-in date: ')
-    L.append(cid)
+    data.append(cid)
     cod = input('Enter the check-out date: ')
-    L.append(cod)
+    data.append(cod)
     noDay= int(input('Enter the number of days stayed: '))
-    L.append(noDay)
+    data.append(noDay)
     roomNo= int(input('Enter the assigned room number: '))
-    L.append(roomNo)
+    data.append(roomNo)
     bookMode = input('Enter the mode of booking: ')
-    L.append(bookMode)
+    data.append(bookMode)
     netAmount=int(input('Enter the net amount paid: '))
-    L.append(netAmount)
-    cust=(L)
+    data.append(netAmount)
+    cust=(data)
     sq="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,NoDays,RoomNo,BookingSource,NetPayment)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
     mycursor.execute(sq,cust)
     connect.commit()
