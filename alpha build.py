@@ -38,6 +38,35 @@ def StaffDetails():
 def StaffSalary():
     read = pd.read_sql("SELECT StaffID, Name, Salary FROM Staff", connect)
     print("\n", read, "\n")
+   
+mycursor=connect.cursor()
+
+def AddGuest():
+    L=[]
+    gid= input('The new guest id: ')
+    L.append(gid)
+    Name= input('Name of the Guest : ')
+    L.append(Name)
+    Rtype=input('The RoomType : ' )
+    L.append(Rtype)
+    cid=input('The check-in-date : ')
+    L.append(cid)
+    cod = input('The check-out-date: ')
+    L.append(cod)
+    noday= int(input('The no of day stayed: '))
+    L.append(noday)
+    RoomNo= int(input('Th assigned room no: '))
+    L.append(RoomNo)
+    Bs = input('Thw mode of booking: ')
+    L.append(Bs)
+    Np=int(input('the Net amount paid: '))
+    L.append(Np)
+    cust=(L)
+    sql="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,NoDays,RoomNo,BookingSource,NetPayment)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    mycursor.execute(sql,cust)
+    connect.commit()
+    read = pd.read_sql('SELECT * FROM Guest', connect)
+    print(read)
 
 #write the login UI code here 
 
@@ -69,7 +98,7 @@ while True:
         if guestMenu == 1:
             ShowGuest()
         elif guestMenu == 2:
-            print("yay output!")    #obvious placeholder
+            AddGuest()    #obvious placeholder
 
     elif menu1 == 2:
         print("Select from one of these options (use numbers 1-2)")
