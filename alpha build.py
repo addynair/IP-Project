@@ -13,6 +13,8 @@ w.filterwarnings('ignore')                                                      
 connect = df= sql.connect(host='localhost',user='root',password='',database='Hotel')
 print(df)
 
+mycursor=connect.cursor()
+
 #define stuff here 
 
 def ShowGuest(): 
@@ -39,37 +41,35 @@ def StaffSalary():
     read = pd.read_sql("SELECT StaffID, Name, Salary FROM Staff", connect)
     print("\n", read, "\n")
    
-mycursor=connect.cursor()
 
 def AddGuest():
     L=[]
-    gid= input('The new guest id: ')
+    gid= input('Enter the new GuestID: ')
     L.append(gid)
-    Name= input('Name of the Guest : ')
-    L.append(Name)
-    Rtype=input('The RoomType : ' )
-    L.append(Rtype)
-    cid=input('The check-in-date : ')
+    name= input('Enter the name of the Guest: ')
+    L.append(name)
+    rType=input('Enter the typr of room required (Single/Double): ' )
+    L.append(rType)
+    cid=input('Enter the check-in date: ')
     L.append(cid)
-    cod = input('The check-out-date: ')
+    cod = input('Enter the check-out date: ')
     L.append(cod)
-    noday= int(input('The no of day stayed: '))
-    L.append(noday)
-    RoomNo= int(input('Th assigned room no: '))
-    L.append(RoomNo)
-    Bs = input('Thw mode of booking: ')
-    L.append(Bs)
-    Np=int(input('the Net amount paid: '))
-    L.append(Np)
+    noDay= int(input('Enter the number of days stayed: '))
+    L.append(noDay)
+    roomNo= int(input('Enter the assigned room number: '))
+    L.append(roomNo)
+    bookMode = input('Enter the mode of booking: ')
+    L.append(bookMode)
+    netAmount=int(input('Enter the net amount paid: '))
+    L.append(netAmount)
     cust=(L)
-    sql="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,NoDays,RoomNo,BookingSource,NetPayment)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    mycursor.execute(sql,cust)
+    sq="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,NoDays,RoomNo,BookingSource,NetPayment)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    mycursor.execute(sq,cust)
     connect.commit()
     read = pd.read_sql('SELECT * FROM Guest', connect)
     print(read)
 
 #write the login UI code here 
-
 
 
 #write main code stuff here
@@ -98,7 +98,7 @@ while True:
         if guestMenu == 1:
             ShowGuest()
         elif guestMenu == 2:
-            AddGuest()    #obvious placeholder
+            AddGuest()    
 
     elif menu1 == 2:
         print("Select from one of these options (use numbers 1-2)")
