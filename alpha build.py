@@ -17,38 +17,38 @@ mycursor=connect.cursor()
 
 #define stuff here 
 
-def ShowGuest(): 
+def showGuest(): 
     read = pd.read_sql('SELECT * FROM Guest', connect)
     print("\n", read, "\n")
 
-def OnlineCheck():
+def onlineCheck():
     read = pd.read_sql("SELECT * FROM Guest WHERE BookingSource = 'Online'", connect)
     print("\n", read, "\n")
 
-def OfflineCheck():
+def offlineCheck():
     read = pd.read_sql("SELECT * FROM Guest WHERE BookingSource = 'Offline'", connect)
     print("\n", read, "\n")
 
-def Payments():
+def payments():
     read = pd.read_sql("SELECT GuestName, NetPayment FROM Guest", connect)
     print("\n", read, "\n")
 
-def StaffDetails():
+def staffDetails():
     read = pd.read_sql("SELECT * FROM Staff", connect)
     print("\n", read, "\n")
 
-def StaffSalary():
+def staffSalary():
     read = pd.read_sql("SELECT StaffID, Name, Salary FROM Staff", connect)
     print("\n", read, "\n")
    
 
-def AddGuest():
+def addGuest():
     data=[]
     gid= input('Enter the new GuestID: ')
     data.append(gid)
-    name= input('Enter the name of the Guest: ')
+    name= input('Enter the name of the guest to be added: ')
     data.append(name)
-    rType=input('Enter the typr of room required (Single/Double): ' )
+    rType=input('Enter the type of room required (Single/Double): ' )
     data.append(rType)
     cid=input('Enter the check-in date: ')
     data.append(cid)
@@ -67,6 +67,36 @@ def AddGuest():
     mycursor.execute(sq,cust)
     connect.commit()
     read = pd.read_sql('SELECT * FROM Guest', connect)
+    print(read)
+
+def deleteGuest():
+    name = input("Enter the name of the guest to be deleted: ")
+    sq = "DELETE FROM Guest WHERE GuestName = %s"
+    cust = (name,)
+    mycursor.execute(sq,cust)
+    connect.commit()
+    read = pd.read_sql("SELECT * FROM Guest", connect)
+    print(read)
+
+def addStaff():
+    data=[]
+    sid= input('Enter the new StaffID: ')
+    data.append(sid)
+    name= input('Enter the name of the employee to be added: ')
+    data.append(name)
+    dob = input("Enter the date of birth of the employee: ")
+    data.append(dob)
+    desig = input("Enter the designation of the employee: ")
+    data.append(desig)
+    salary = int(input("Enter the salary of the employee: "))
+    data.append(salary)
+    doh = input("Enter the employee's date of hire: ")
+    data.append(doh)
+    val=(data)
+    sq="INSERT INTO Staff(StaffID, Name, DateOfBirth, Designation, Salary, DateOfHire)VALUES(%s,%s,%s,%s,%s,%s)"
+    mycursor.execute(sq,val)
+    connect.commit()
+    read = pd.read_sql('SELECT * FROM Staff', connect)
     print(read)
 
 #write the login UI code here 
@@ -96,9 +126,13 @@ while True:
         print("4. Graphical Representation")
         guestMenu = int(input("Enter the required selection: "))
         if guestMenu == 1:
-            ShowGuest()
+            showGuest()
         elif guestMenu == 2:
-            AddGuest()    
+            addGuest()   
+        elif guestMenu == 3:
+            deleteGuest()
+        elif guestMenu == 4:
+            print("Stonks graph")        #stonks
 
     elif menu1 == 2:
         print("Select from one of these options (use numbers 1-2)")
@@ -106,12 +140,12 @@ while True:
         print("2. Reserved Check-in/Check-out")
         checkMenu = int(input("Enter the required selection: "))
         if checkMenu == 1:
-            OnlineCheck()
+            onlineCheck()
         elif checkMenu == 2:
-            OfflineCheck()
+            offlineCheck()
 
     elif menu1 == 3:
-        Payments()
+        payments()
 
     elif menu1 == 4:
         print("Select from one of these options (use numbers 1-3)")
@@ -120,12 +154,14 @@ while True:
         print("3. Delete a staff record")
         staffMenu = int(input("Enter the requried selection: "))
         if staffMenu == 1:
-            StaffDetails()
+            staffDetails()
         elif staffMenu == 2:
-            print("It's raining outputs!")       #it's raining placeholders!
+            addStaff()
+        elif staffMenu == 3:
+            print("It is raining outputs!")       #it is raining placeholders!
 
     elif menu1 == 5: 
-        StaffSalary()
+        staffSalary()
 
     elif menu1 == 6:
         print("\n Select from one of these options (use numbers 1-) \n ")
