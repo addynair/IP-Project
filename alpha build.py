@@ -98,6 +98,68 @@ def addStaff():
     connect.commit()
     read = pd.read_sql('SELECT * FROM Staff', connect)
     print(read)
+    
+def deleteStaff():
+    name = input("Enter the name of the staff to be deleted: ")
+    sq = "DELETE FROM staff WHERE Name = %s"
+    cust = (name,)
+    mycursor.execute(sq,cust)
+    connect.commit()
+    read = pd.read_sql("SELECT * FROM staff", connect)
+    print(read)
+
+def UpdateRtype():
+    newdata=[]
+    rtype = input("Enter the new room type: ")
+    newdata.append(rtype)
+    name = input("Enter the name of the guest: ")
+    newdata.append(name)
+    sq = "UPDATE guest SET RoomType = %s WHERE GuestName = %s"
+    val = (newdata)
+    mycursor.execute(sq,val)
+    connect.commit()
+    read = pd.read_sql("SELECT * FROM guest", connect)
+    print(read)
+
+def Updatecod():
+    newdata=[]
+    newcod = input("Enter the updated check-out date: ")
+    newdata.append(newcod)
+    name = input("Enter the name of the guest: ")
+    newdata.append(name)
+    sq = "UPDATE guest SET CheckoutDate = %s WHERE GuestName = %s"
+    val = (newdata)
+    mycursor.execute(sq,val)
+    connect.commit()
+    read = pd.read_sql("SELECT * FROM guest", connect)
+    print(read)
+
+def UpdateRoomno():
+    newdata=[]
+    Roomno = input("Enter the new room no: ")
+    newdata.append(Roomno)
+    name = input("Enter the name of the guest: ")
+    newdata.append(name)
+    sq = "UPDATE guest SET RoomNo  = %s WHERE GuestName = %s"
+    val = (newdata)
+    mycursor.execute(sq,val)
+    connect.commit()
+    read = pd.read_sql("SELECT * FROM guest", connect)
+    print(read)
+
+def UpdateSalary():
+    newdata=[]
+    salary = input("Enter the new salary: ")
+    newdata.append(salary)
+    name = input("Enter the name of the staff: ")
+    newdata.append(name)
+    sq = "UPDATE staff SET Salary  = %s WHERE  Name = %s"
+    val = (newdata)
+    mycursor.execute(sq,val)
+    connect.commit()
+    read = pd.read_sql("SELECT * FROM staff", connect)
+    print(read)
+        
 
 #write the login UI code here 
 
@@ -158,7 +220,7 @@ while True:
         elif staffMenu == 2:
             addStaff()
         elif staffMenu == 3:
-            print("It is raining outputs!")       #it is raining placeholders!
+            deleteStaff()       #it is raining placeholders!
 
     elif menu1 == 5: 
         staffSalary()
@@ -168,9 +230,21 @@ while True:
         print("1. Update the Room type of a guest")
         print("2. Update the Check-out date of the guest")
         print('3. Update the Room number of the guest')
+        print("4. Update the salary of the staff")
         upd1= int(input("Enter the required selection: "))
         if upd1 == 1:
-            print("Yay output")        #you need to level up to access this part of the program xD
-    else:
-        print("Invalid option")
+            UpdateRtype()
+        elif upd1 == 2:
+            Updatecod()
+        elif upd1 == 3:
+            UpdateRoomno()
+        elif upd1 == 4:
+            UpdateSalary()
+        else:
+            print("Invalid option")
+    
+        
+            
+                    
+    
     
