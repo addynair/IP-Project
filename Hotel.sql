@@ -28,7 +28,6 @@ CREATE TABLE `guest` (
   `RoomType` varchar(15) DEFAULT NULL,
   `CheckinDate` date DEFAULT NULL,
   `CheckoutDate` date DEFAULT NULL,
-  `NoDays` int(2) DEFAULT NULL,
   `RoomNo` int(4) DEFAULT NULL,
   `BookingSource` varchar(10) DEFAULT NULL,
   `NetPayment` int(5) DEFAULT NULL
@@ -41,7 +40,7 @@ CREATE TABLE `guest` (
 
 LOCK TABLES `guest` WRITE;
 /*!40000 ALTER TABLE `guest` DISABLE KEYS */;
-INSERT INTO `guest` VALUES (101,'Aarav','Single','2022-09-01','2022-09-04',4,281,'Online',3400),(102,'Basanti','Single','2022-08-28','2022-09-07',11,282,'Online',9350),(103,'Kavita','Double','2022-09-08','2022-09-18',10,302,'Offline',9500),(104,'Shiva','Double','2022-09-13','2022-09-15',3,139,'Online',3850),(105,'Reshmi','Single','2022-09-13','2022-09-16',4,285,'Offline',3800),(106,'Raj','Single','2022-09-21','2022-10-03',12,114,'Online',11400),(107,'Suman','Single','2022-10-06','2022-10-13',8,298,'Online',6850),(108,'Kiran','Double','2022-10-07','2022-10-09',3,175,'Offline',2550),(109,'Kumar','Double','2022-10-06','2022-10-13',8,308,'Online',7600),(110,'Radha','Single','2022-10-13','2022-10-17',8,148,'Offline',5950);
+INSERT INTO `guest` VALUES (101,'Aarav','Single','2022-09-01','2022-09-04',281,'Online',3400),(102,'Basanti','Single','2022-08-28','2022-09-07',282,'Online',9350),(103,'Kavita','Double','2022-09-08','2022-09-18',302,'Offline',9500),(104,'Shiva','Double','2022-09-13','2022-09-15',139,'Online',3850),(105,'Reshmi','Single','2022-09-13','2022-09-16',285,'Offline',3800),(106,'Raj','Single','2022-09-21','2022-10-03',114,'Online',11400),(107,'Suman','Single','2022-10-06','2022-10-13',298,'Online',6850),(108,'Kiran','Double','2022-10-07','2022-10-09',175,'Offline',2550),(109,'Kumar','Double','2022-10-06','2022-10-13',308,'Online',7600),(110,'Radha','Single','2022-10-13','2022-10-17',148,'Offline',5950);
 /*!40000 ALTER TABLE `guest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,4 +80,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-14 16:08:51
+-- Dump completed on 2022-09-18 12:15:44

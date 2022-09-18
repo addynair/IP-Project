@@ -13,7 +13,7 @@ w.filterwarnings('ignore')                                                      
 connect = df= sql.connect(host='localhost',user='root',password='',database='Hotel')
 print(df)
 
-mycursor=connect.cursor()
+cursor=connect.cursor()
 
 #define stuff here 
 
@@ -54,8 +54,6 @@ def addGuest():
     data.append(cid)
     cod = input('Enter the check-out date: ')
     data.append(cod)
-    noDay= int(input('Enter the number of days stayed: '))
-    data.append(noDay)
     roomNo= int(input('Enter the assigned room number: '))
     data.append(roomNo)
     bookMode = input('Enter the mode of booking: ')
@@ -63,8 +61,8 @@ def addGuest():
     netAmount=int(input('Enter the net amount paid: '))
     data.append(netAmount)
     cust=(data)
-    sq="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,NoDays,RoomNo,BookingSource,NetPayment)VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    mycursor.execute(sq,cust)
+    sq="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,RoomNo,BookingSource,NetPayment)VALUES(,%s,%s,%s,%s,%s,%s,%s,%s)"
+    cursor.execute(sq,cust)
     connect.commit()
     read = pd.read_sql('SELECT * FROM Guest', connect)
     print(read)
@@ -73,7 +71,7 @@ def deleteGuest():
     name = input("Enter the name of the guest to be deleted: ")
     sq = "DELETE FROM Guest WHERE GuestName = %s"
     cust = (name,)
-    mycursor.execute(sq,cust)
+    cursor.execute(sq,cust)
     connect.commit()
     read = pd.read_sql("SELECT * FROM Guest", connect)
     print(read)
@@ -94,7 +92,7 @@ def addStaff():
     data.append(doh)
     val=(data)
     sq="INSERT INTO Staff(StaffID, Name, DateOfBirth, Designation, Salary, DateOfHire)VALUES(%s,%s,%s,%s,%s,%s)"
-    mycursor.execute(sq,val)
+    cursor.execute(sq,val)
     connect.commit()
     read = pd.read_sql('SELECT * FROM Staff', connect)
     print(read)
@@ -104,12 +102,12 @@ def deleteStaff():
     name = input("Enter the name of the staff to be deleted: ")
     sq = "DELETE FROM staff WHERE Name = %s"
     cust = (name,)
-    mycursor.execute(sq,cust)
+    cursor.execute(sq,cust)
     connect.commit()
     read = pd.read_sql("SELECT * FROM staff", connect)
     print(read)
 
-def UpdateRtype():
+def updateRtype():
     newdata=[]
     rtype = input("Enter the new room type: ")
     newdata.append(rtype)
@@ -117,12 +115,12 @@ def UpdateRtype():
     newdata.append(name)
     sq = "UPDATE guest SET RoomType = %s WHERE GuestName = %s"
     val = (newdata)
-    mycursor.execute(sq,val)
+    cursor.execute(sq,val)
     connect.commit()
     read = pd.read_sql("SELECT * FROM guest", connect)
     print(read)
 
-def Updatecod():
+def updateCOD():
     newdata=[]
     newcod = input("Enter the updated check-out date: ")
     newdata.append(newcod)
@@ -130,12 +128,12 @@ def Updatecod():
     newdata.append(name)
     sq = "UPDATE guest SET CheckoutDate = %s WHERE GuestName = %s"
     val = (newdata)
-    mycursor.execute(sq,val)
+    cursor.execute(sq,val)
     connect.commit()
     read = pd.read_sql("SELECT * FROM guest", connect)
     print(read)
 
-def UpdateRoomno():
+def updateRoomno():
     newdata=[]
     Roomno = input("Enter the new room no: ")
     newdata.append(Roomno)
@@ -143,12 +141,12 @@ def UpdateRoomno():
     newdata.append(name)
     sq = "UPDATE guest SET RoomNo  = %s WHERE GuestName = %s"
     val = (newdata)
-    mycursor.execute(sq,val)
+    cursor.execute(sq,val)
     connect.commit()
     read = pd.read_sql("SELECT * FROM guest", connect)
     print(read)
 
-def UpdateSalary():
+def updateSalary():
     newdata=[]
     salary = input("Enter the new salary: ")
     newdata.append(salary)
@@ -156,7 +154,7 @@ def UpdateSalary():
     newdata.append(name)
     sq = "UPDATE staff SET Salary  = %s WHERE  Name = %s"
     val = (newdata)
-    mycursor.execute(sq,val)
+    cursor.execute(sq,val)
     connect.commit()
     read = pd.read_sql("SELECT * FROM staff", connect)
     print(read)
@@ -175,13 +173,13 @@ while True:
     print("4. Staff Details ")
     print("5. Staff salary")
     print("6. Updates")
-    menu1 = int(input("Enter the required selection: "))
+    menu = int(input("Enter the required selection: "))
 
-    if menu1 == 0: 
+    if menu == 0: 
         print("Bye")
         break 
 
-    elif menu1 == 1:
+    elif menu == 1:
         print("Select from one of these options (use numbers 1-4)")
         print("1. Show all guest records")
         print("2. Add a guest record")
@@ -197,7 +195,7 @@ while True:
         elif guestMenu == 4:
             print("Stonks graph")        #stonks
 
-    elif menu1 == 2:
+    elif menu == 2:
         print("Select from one of these options (use numbers 1-2)")
         print("1. Online Check-in/Check-out")
         print("2. Reserved Check-in/Check-out")
@@ -207,10 +205,10 @@ while True:
         elif checkMenu == 2:
             offlineCheck()
 
-    elif menu1 == 3:
+    elif menu == 3:
         payments()
 
-    elif menu1 == 4:
+    elif menu == 4:
         print("Select from one of these options (use numbers 1-3)")
         print("1. Show all staff records")
         print("2. Add a staff record")
@@ -221,32 +219,26 @@ while True:
         elif staffMenu == 2:
             addStaff()
         elif staffMenu == 3:
-            deleteStaff()       #it is raining placeholders!
+            deleteStaff()       
 
-
-    elif menu1 == 5: 
+    elif menu == 5: 
         staffSalary()
 
-    elif menu1 == 6:
+    elif menu == 6:
         print("\n Select from one of these options (use numbers 1-) \n ")
         print("1. Update the Room type of a guest")
         print("2. Update the Check-out date of the guest")
         print('3. Update the Room number of the guest')
         print("4. Update the salary of the staff")
-        upd1= int(input("Enter the required selection: "))
-        if upd1 == 1:
-            UpdateRtype()
-        elif upd1 == 2:
-            Updatecod()
-        elif upd1 == 3:
-            UpdateRoomno()
-        elif upd1 == 4:
-            UpdateSalary()
+        upd= int(input("Enter the required selection: "))
+        if upd == 1:
+            updateRtype()
+        elif upd == 2:
+            updateCOD()
+        elif upd == 3:
+            updateRoomno()
+        elif upd == 4:
+            updateSalary()
         else:
             print("Invalid option")
-    
-        
-            
-                    
-    
     
