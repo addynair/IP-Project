@@ -98,6 +98,7 @@ def addStaff():
     connect.commit()
     read = pd.read_sql('SELECT * FROM Staff', connect)
     print(read)
+
     
 def deleteStaff():
     name = input("Enter the name of the staff to be deleted: ")
@@ -221,6 +222,7 @@ while True:
             addStaff()
         elif staffMenu == 3:
             deleteStaff()       #it is raining placeholders!
+
 
     elif menu1 == 5: 
         staffSalary()
