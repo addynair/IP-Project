@@ -158,6 +158,18 @@ def updateSalary():
     connect.commit()
     read = pd.read_sql("SELECT * FROM staff", connect)
     print(read)
+    
+def graphProfit():
+    months= [ 'May','June', 'July', 'August', 'September', 'October']
+    profit= [20000, 90000, 70000, 90000, 80000, 120000]
+    plt.plot(months, profit)
+    plt.title("Profits from June to October1")
+    plt.xlabel("Months")
+    plt.ylabel("Profit")
+    plt.show()
+    
+#write the login UI code here 
+    
         
 
 #write the login UI code here 
@@ -193,7 +205,14 @@ while True:
         elif guestMenu == 3:
             deleteGuest()
         elif guestMenu == 4:
-            print("Stonks graph")        #stonks
+            print("Select from one of these options (use numbers 1 to  2 )")        
+            print("1.  Profit graph")
+            print("2. Mode of booking graph")
+            graphMenu = int(input("Enter the required selection: "))
+            if graphMenu == 1:
+                graphProfit()
+            elif graphMenu == 2:
+                print("Output or something idk")     #stonks
 
     elif menu == 2:
         print("Select from one of these options (use numbers 1-2)")
