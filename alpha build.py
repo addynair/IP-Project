@@ -167,13 +167,8 @@ def graphProfit():
     plt.xlabel("Months")
     plt.ylabel("Profit")
     plt.show()
-    
-#write the login UI code here 
-    
-        
 
 #write the login UI code here 
-
 
 #write main code stuff here
 
@@ -212,7 +207,7 @@ while True:
             if graphMenu == 1:
                 graphProfit()
             elif graphMenu == 2:
-                print("Output or something idk")     #stonks
+                print("Profit")
 
     elif menu == 2:
         print("Select from one of these options (use numbers 1-2)")
