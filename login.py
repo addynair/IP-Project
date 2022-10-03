@@ -23,7 +23,7 @@ def funcLogin():
     if result:
         messagebox.showinfo("Yay!","Yay you logged in. Wow, such empty!")
         root.destroy()
-        importlib.import_module('alpha build')
+        importlib.import_module('open beta')
         return True
     elif uname == '':
         messagebox.showerror('Oh no :(',"Please enter a username")
