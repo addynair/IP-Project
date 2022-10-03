@@ -61,7 +61,8 @@ def addGuest():
     netAmount=int(input('Enter the net amount paid: '))
     data.append(netAmount)
     cust=(data)
-    sq="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,RoomNo,BookingSource,NetPayment)VALUES(,%s,%s,%s,%s,%s,%s,%s,%s)"
+    sq="INSERT INTO Guest(GuestID,GuestName,RoomType,CheckinDate,CheckoutDate,RoomNo,BookingSource,NetPayment)VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"
+    
     cursor.execute(sq,cust)
     connect.commit()
     read = pd.read_sql('SELECT * FROM Guest', connect)
