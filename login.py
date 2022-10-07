@@ -44,7 +44,7 @@ style = ttk.Style()
 style.configure("Accent.TButton")
 global user; global pwd
 
-img = ImageTk.PhotoImage(Image.open("E:\\Login stuff\logo.png"))
+img = ImageTk.PhotoImage(Image.open("logo.png"))
 lab = ttk.Label(root, image = img)
 lab.place(x= 63, y= 10)
 

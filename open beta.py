@@ -77,6 +77,27 @@ def deleteGuest():
     read = pd.read_sql("SELECT * FROM Guest", connect)
     print(read)
 
+def graphProfit():
+    months= [ 'May','June', 'July', 'August', 'September', 'October']
+    profit= [20000, 90000, 70000, 90000, 80000, 120000]
+    plt.plot(months, profit)
+    plt.title("Profits from June to October1")
+    plt.xlabel("Months")
+    plt.ylabel("Profit")
+    plt.show()
+
+def graphBooking():
+    cursor.execute("SELECT COUNT(BookingSource) FROM Guest WHERE BookingSource = 'Online'")
+    cursor.execute("SELECT COUNT(BookingSource) FROM Guest WHERE BookingSource = 'Offline'")
+    cursor.fetchall()
+    x= ['Online', 'Offline']
+    y = []
+    for i in cursor:
+        y.append(i[0])
+        y.append(i[1])
+    plt.bar(x,y)
+    plt.show()
+
 def addStaff():
     data=[]
     sid= input('Enter the new StaffID: ')
@@ -160,14 +181,6 @@ def updateSalary():
     read = pd.read_sql("SELECT * FROM staff", connect)
     print(read)
     
-def graphProfit():
-    months= [ 'May','June', 'July', 'August', 'September', 'October']
-    profit= [20000, 90000, 70000, 90000, 80000, 120000]
-    plt.plot(months, profit)
-    plt.title("Profits from June to October1")
-    plt.xlabel("Months")
-    plt.ylabel("Profit")
-    plt.show()
 
 #write the login UI code here 
 
@@ -208,7 +221,7 @@ while True:
             if graphMenu == 1:
                 graphProfit()
             elif graphMenu == 2:
-                print("Profit")
+                graphBooking()
 
     elif menu == 2:
         print("Select from one of these options (use numbers 1-2)")
