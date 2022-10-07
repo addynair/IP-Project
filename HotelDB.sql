@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `Username` varchar(67) DEFAULT NULL,
+  `Password` varchar(67) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES ('Aathish','securepwd'),('Ajay Ghale','verysecurepwd');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `guest`
 --
 
@@ -40,12 +63,11 @@ CREATE TABLE `guest` (
 
 LOCK TABLES `guest` WRITE;
 /*!40000 ALTER TABLE `guest` DISABLE KEYS */;
-INSERT INTO `guest` VALUES (101,'Aarav','Single','2022-09-01','2022-09-04',281,'Online',15000),(102,'Basanti','Single','2022-08-28','2022-09-07',282,'Online',20000),(103,'Kavita','Double','2022-09-08','2022-09-18',302,'Offline',30000),(104,'Shiva','Double','2022-09-13','2022-09-15',139,'Online',25000),(105,'Reshmi','Single','2022-09-13','2022-09-16',285,'Offline',17500),(106,'Raj','Single','2022-09-21','2022-10-03',114,'Online',18000),(107,'Suman','Single','2022-10-06','2022-10-13',298,'Online',16750),(108,'Kiran','Double','2022-10-07','2022-10-09',175,'Offline',22000),(109,'Kumar','Double','2022-10-06','2022-10-13',308,'Online',27500),(110,'Radha','Single','2022-10-13','2022-10-17',148,'Offline',18000);
+INSERT INTO `guest` VALUES (101,'Aarav','Single','2022-09-01','2022-09-04',281,'Online',15000),(102,'Basanti','Single','2022-08-28','2022-09-07',282,'Online',20000),(103,'Kavita','Double','2022-09-08','2022-09-18',302,'Offline',30000),(104,'Shiva','Double','2022-09-13','2022-09-15',139,'Online',25000),(105,'Reshmi','Single','2022-09-13','2022-09-16',285,'Offline',17500),(106,'Raj','Single','2022-09-21','2022-10-03',114,'Online',18000),(107,'Suman','Single','2022-10-06','2022-10-13',298,'Online',16750),(108,'Kiran','Double','2022-10-07','2022-10-09',175,'Offline',22000),(109,'Kumar','Double','2022-10-06','2022-10-13',308,'Online',27500),(110,'Radha','Single','2022-10-13','2022-10-17',148,'Offline',18000),(111,'Dummy','Single','2022-08-01','2022-08-03',421,'Online',2000);
 /*!40000 ALTER TABLE `guest` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
-
 -- Table structure for table `login`
 --
 
@@ -104,5 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-
--- Dump completed on 2022-09-30 15:48:57
+-- Dump completed on 2022-10-07 15:50:09

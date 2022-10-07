@@ -192,8 +192,39 @@ def updCheckout():
     sv.use_dark_theme()
 
 def cmdLine():
-    root1.withdraw()
-    importlib.import_module("open beta.py")
+    def adminLogin():
+        uname1 = user1.get()
+        pw1 = pwd1.get()
+
+        quer = 'SELECT * FROM Admin WHERE Username = %s AND Password = %s'
+        cursor.execute(quer, [(uname1), (pw1)])
+        result = cursor.fetchall()
+        if result:
+            root1.withdraw()
+            root2.withdraw()
+            importlib.import_module("open beta.py")
+        else:
+            messagebox.showerror('Error', 'Username/Password is incorrect')
+
+    root2 = tkinter.Toplevel()
+    root2.title("Update")
+    root2.resizable(False, False)
+    root2.geometry("300x220")
+
+    ttk.Label(root2, text = "Administrator Login", font = ('Segoe UI', 20)).place(x= 10,y = 10)
+    ttk.Label(root2, text = "Username", font = ('Segoe UI', 12)).place(x = 15, y = 75)
+    ttk.Label(root2, text = 'Password', font = ('Segoe UI', 12)).place(x = 15, y = 120)
+
+    user1 = ttk.Entry(root2)
+    user1.place(x = 125, y = 75)
+    pwd1 = ttk.Entry(root2, show = "●")
+    pwd1.place(x = 125, y = 120)
+
+    admin = ttk.Button(root2, text = 'Login', style = 'Accent.TButton', command = adminLogin)
+    admin.place(x = 115, y = 175)
+
+    sv.use_dark_theme()
+
 #to login or not to login 
 
 def funcLogin():     #checks your usernames and passwords
