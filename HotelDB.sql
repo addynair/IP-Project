@@ -34,7 +34,7 @@ CREATE TABLE `admin` (
 
 LOCK TABLES `admin` WRITE;
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES ('Aathish','securepwd'),('Ajay Ghale','verysecurepwd');
+INSERT INTO `admin` VALUES ('Aathish','securepwd'),('Ajay Ghale','verysecurepwd'),('Anushka','pwd'),('Jaspreet','bumrah'),('Ishaan Kishan','reallysecurepwd');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-07 15:50:09
+-- Dump completed on 2022-10-07 16:01:01
