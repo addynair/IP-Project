@@ -20,9 +20,9 @@ def gRecords():
         for i, (GuestID, GuestName, RoomType, CheckinDate, CheckoutDate, RoomNo, BookingSource, NetPayment) in enumerate(records, start=1):
             tree.insert("", "end", values=(GuestID, GuestName, RoomType, CheckinDate, CheckoutDate, RoomNo, BookingSource, NetPayment))
             
-    root2 = tkinter.Toplevel(root)
-    root2.title("Guest Records")
-    root2.resizable(False, False)
+    root2 = tkinter.Toplevel(root)      #things
+    root2.title("Guest Records")        #required for 
+    root2.resizable(False, False)       #the frame
     label = ttk.Label(root2, text="Guest Records", font=("Segoe UI",15)).grid(row=0, columnspan=1)
     cols = ('Guest ID', 'Guest Name', 'Room Type','Check-in Date', 'Check-out Date', 'Room Number', 'Booking Source', 'Net Payment')
     tree = ttk.Treeview(root2, columns=cols, show='headings')
@@ -126,21 +126,21 @@ def netPayment():
     root2.mainloop()
 
 def roomNo():
-    root2 = tkinter.Toplevel(root)
+    root2 = tkinter.Toplevel(root)     #UI for updating data
     root2.title("Update")
     root2.resizable(False, False)
     root2.geometry("300x220")    
 
     def update(): 
-        lab = updEntry.get()
+        lab = updEntry.get()          
         name = nameEntry.get()
         data=[]
         data.append(lab)
         data.append(name)
         query = "UPDATE guest SET RoomNo  = %s WHERE GuestName = %s"
         val = (data)
-        cursor.execute(query,val)
-        connect.commit()
+        cursor.execute(query,val)           #executes query
+        connect.commit()                    #commits to database
         messagebox.showinfo('Yay', 'Update Successful')
         root2.destroy()
          
@@ -192,7 +192,7 @@ def updCheckout():
     sv.use_dark_theme()
 
 def cmdLine():
-    def adminLogin():
+    def adminLogin():           #Administrator login function
         uname1 = user1.get()
         pw1 = pwd1.get()
 
@@ -206,7 +206,7 @@ def cmdLine():
         else:
             messagebox.showerror('Error', 'Username/Password is incorrect')
 
-    root2 = tkinter.Toplevel()
+    root2 = tkinter.Toplevel()             #UI for Administrator login
     root2.title("Update")
     root2.resizable(False, False)
     root2.geometry("300x220")
@@ -229,8 +229,8 @@ def cmdLine():
 
 def funcLogin():     #checks your usernames and passwords
     global root1
-    uname = user.get()
-    pw = pwd.get()
+    uname = user.get()       #fetches username
+    pw = pwd.get()           #fetches password
 
     quer = 'SELECT * FROM Login WHERE Username = %s AND Password = %s'
     cursor.execute(quer, [(uname), (pw)])
@@ -244,8 +244,8 @@ def funcLogin():     #checks your usernames and passwords
         root1.resizable(False,False)              
 
         #spaghetti code begins
-        ttk.Label(root1, text = "Welcome,", font = ('Segoe UI', 35)).place(x = 25, y = 10)
-        ttk.Label(root1, text =  uname, font = ('Segoe UI',35, 'bold')).place(x = 240, y = 10)
+        ttk.Label(root1, text = "Welcome,", font = ('Segoe UI', 35)).place(x = 25, y = 10)     #Opening 
+        ttk.Label(root1, text =  uname, font = ('Segoe UI',35, 'bold')).place(x = 240, y = 10) #text
 
         ttk.Label(root1, text = 'Guest Data', font = ('Segoe UI', 15)).place(x = 35, y = 80)
 
@@ -279,6 +279,7 @@ def funcLogin():     #checks your usernames and passwords
         cmdline.place(x = 565, y = 400, width = 230, height = 42)
 
         ttk.Separator(root1, orient = "horizontal").place(x = 360, y = 100, height = 300, width = 3)
+
         sv.use_dark_theme()
         mainloop()
         return True
@@ -288,7 +289,7 @@ def funcLogin():     #checks your usernames and passwords
     elif pw == '':            #no password
         messagebox.showerror('Oh no :(',"Please enter a password")
     else:                      #wrong username/password
-        messagebox.showinfo("Oh no :(","Your username or password is incorrect, try again xD", icon = 'error')
+        messagebox.showerror("Oh no :(","Your username or password is incorrect, try again")
         return False
     
 

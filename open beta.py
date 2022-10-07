@@ -4,9 +4,6 @@ import pandas as pd
 from matplotlib import pyplot as plt 
 from mysql import connector as sql 
 import warnings as w 
-from tkinter import ttk 
-from tkinter import *
-import sv_ttk as sv
 
 #make the connection here 
 w.filterwarnings('ignore')                                                      #removes SQLAlchemy warning 
