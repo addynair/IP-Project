@@ -85,16 +85,7 @@ def graphProfit():
     plt.show()
 
 def graphBooking():
-    cursor.execute("SELECT COUNT(BookingSource) FROM Guest WHERE BookingSource = 'Online'")
-    cursor.execute("SELECT COUNT(BookingSource) FROM Guest WHERE BookingSource = 'Offline'")
-    cursor.fetchall()
-    x= ['Online', 'Offline']
-    y = []
-    for i in cursor:
-        y.append(i[0])
-        y.append(i[1])
-    plt.bar(x,y)
-    plt.show()
+    print("WIP")
 
 def addStaff():
     data=[]
