@@ -3,7 +3,7 @@ import tkinter
 from PIL import ImageTk, Image
 import sv_ttk as sv
 from mysql import connector as sql 
-import importlib 
+import os
 
 #make the mysql connection here
 
@@ -202,7 +202,7 @@ def cmdLine():
         if result:
             root1.withdraw()
             root2.withdraw()
-            importlib.import_module("open beta.py")
+            os.startfile("open beta.py")
         else:
             messagebox.showerror('Error', 'Username/Password is incorrect')
 
