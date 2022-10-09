@@ -3,7 +3,6 @@ from PIL import ImageTk, Image
 import tkinter 
 import sv_ttk as sv
 from mysql import connector as sql 
-import importlib 
 
 #make the mysql connection here
 
@@ -19,6 +18,7 @@ def funcRegister():
     cursor.execute(quer, [(uname), (pw)])
     connect.commit()
     messagebox.showinfo("Yay", 'Yay, you have registered! Use the Login Page now to login')
+    root.destroy()
 
 #main UI Code
 
