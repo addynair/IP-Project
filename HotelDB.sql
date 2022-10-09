@@ -63,7 +63,7 @@ CREATE TABLE `guest` (
 
 LOCK TABLES `guest` WRITE;
 /*!40000 ALTER TABLE `guest` DISABLE KEYS */;
-INSERT INTO `guest` VALUES (101,'Aarav','Single','2022-09-01','2022-09-04',281,'Online',15000),(102,'Basanti','Single','2022-08-28','2022-09-07',282,'Online',20000),(103,'Kavita','Double','2022-09-08','2022-09-18',302,'Offline',30000),(104,'Shiva','Double','2022-09-13','2022-09-15',139,'Online',25000),(105,'Reshmi','Single','2022-09-13','2022-09-16',285,'Offline',17500),(106,'Raj','Single','2022-09-21','2022-10-03',114,'Online',18000),(107,'Suman','Single','2022-10-06','2022-10-13',298,'Online',16750),(108,'Kiran','Double','2022-10-07','2022-10-09',175,'Offline',22000),(109,'Kumar','Double','2022-10-06','2022-10-13',308,'Online',27500),(110,'Radha','Single','2022-10-13','2022-10-17',148,'Offline',18000),(111,'Dummy','Single','2022-08-01','2022-08-03',421,'Online',2000);
+INSERT INTO `guest` VALUES (101,'Aarav','Single','2022-09-01','2022-09-04',281,'Online',15000),(102,'Basanti','Single','2022-08-28','2022-09-07',282,'Online',20000),(103,'Kavita','Double','2022-09-08','2022-09-18',302,'Offline',30000),(104,'Shiva','Double','2022-09-13','2022-09-15',139,'Online',25000),(105,'Reshmi','Single','2022-09-13','2022-09-16',285,'Offline',17500),(106,'Raj','Single','2022-09-21','2022-10-03',114,'Online',18000),(107,'Suman','Single','2022-10-06','2022-10-13',298,'Online',16750),(108,'Kiran','Double','2022-10-07','2022-10-09',175,'Offline',22000),(109,'Kumar','Double','2022-10-06','2022-10-13',308,'Online',27500),(110,'Radha','Single','2022-10-13','2022-10-17',148,'Offline',18000);
 /*!40000 ALTER TABLE `guest` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('Aathish','randompassword'),('Ajay Ghale','reallysecurepassword'),('Ben','123789');
+INSERT INTO `login` VALUES ('Aathish','randompassword'),('Ajay Ghale','reallysecurepassword'),('Ben','123789'),('Aditi','somepwd');
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,4 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-07 16:01:01
+-- Dump completed on 2022-10-09  5:08:31
