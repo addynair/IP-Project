@@ -256,6 +256,6 @@ while True:
             updateRoomno()
         elif upd == 4:
             updateSalary()
-        else:
-            print("Invalid option")
+    else:
+        print("Invalid option")
     
