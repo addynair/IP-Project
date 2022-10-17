@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `Username` varchar(67) DEFAULT NULL,
+  `Password` varchar(67) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin`
+--
+
+LOCK TABLES `admin` WRITE;
+/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
+INSERT INTO `admin` VALUES ('Aathish','securepwd'),('Ajay Ghale','verysecurepwd'),('Anushka','pwd'),('Jaspreet','bumrah'),('Ishaan Kishan','reallysecurepwd');
+/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `guest`
 --
 
@@ -45,7 +68,6 @@ INSERT INTO `guest` VALUES (101,'Aarav','Single','2022-09-01','2022-09-04',281,'
 UNLOCK TABLES;
 
 --
-
 -- Table structure for table `login`
 --
 
@@ -64,7 +86,7 @@ CREATE TABLE `login` (
 
 LOCK TABLES `login` WRITE;
 /*!40000 ALTER TABLE `login` DISABLE KEYS */;
-INSERT INTO `login` VALUES ('Aathish','randompassword'),('Ajay Ghale','reallysecurepassword'),('Ben','123789');
+INSERT INTO `login` VALUES ('Aathish','randompassword'),('Ajay Ghale','reallysecurepassword'),('Ben','123789'),('Aditi','somepwd');
 /*!40000 ALTER TABLE `login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,5 +126,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-
--- Dump completed on 2022-09-30 15:48:57
+-- Dump completed on 2022-10-09  5:08:31
