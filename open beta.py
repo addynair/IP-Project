@@ -84,8 +84,26 @@ def graphProfit():
     plt.ylabel("Profit")
     plt.show()
 
-def graphBooking():
-    print("WIP")
+
+def graphSalary():
+    cursor.execute("select name,salary from staff")
+    result = cursor.fetchall
+    Name = []
+    Salary = []
+ 
+    for i in cursor:
+          Name.append(i[0])
+          Salary.append(i[1])
+
+    plt.style.use('dark_background')
+    plt.bar(Name, Salary)
+    plt.ylim(0, 80000)
+    plt.xlabel("Names of staff members")
+    plt.ylabel("Salary")
+    plt.title("Salary graph")
+    plt.style.use('dark_background')
+    plt.show()
+    
 
 def addStaff():
     data=[]
@@ -205,12 +223,12 @@ while True:
         elif guestMenu == 4:
             print("Select from one of these options (use numbers 1 to  2 )")        
             print("1.  Profit graph")
-            print("2. Mode of booking graph")
+            print("2. Salary graph")
             graphMenu = int(input("Enter the required selection: "))
             if graphMenu == 1:
                 graphProfit()
             elif graphMenu == 2:
-                graphBooking()
+                graphSalary()
 
     elif menu == 2:
         print("\nSelect from one of these options (use numbers 1-2)\n")
