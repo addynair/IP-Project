@@ -41,8 +41,46 @@ def gRecords():
     sv.use_dark_theme()
     root2.mainloop()
 
-def graphs():
-    print("Not done yet")
+def guestDelete():
+    def delCommand():
+        def delRecord():
+            delete = delEntry.get()
+            qu = "DELETE FROM Guest WHERE GuestName = %s"
+            cursor.execute(qu, [(delete)])
+            connect.commit()
+            root3.destroy()
+            messagebox.showinfo("Delete", 'Delete successful')
+            root2.destroy()
+        def close():
+            root2.destroy()
+
+        root3 = tkinter.Toplevel(root2)
+        root3.title("Confirmation")
+        root3.geometry("300x170")
+        root3.resizable(False, False)
+
+        ttk.Label(root3, text = 'Are you sure that you', font = ('SegoeUI', 19)).place(x = 27, y = 10)
+        ttk.Label(root3, text = 'want to delete this guest?', font = ('SegoeUI', 19)).place(x = 7, y = 47)
+
+        y = ttk.Button(root3, text = "Yes", command = delRecord).place(x = 55, y = 100, width = 70, height = 40)
+        n = ttk.Button(root3, text = 'No', style = 'Accent.TButton', command = close).place(x = 155, y = 100, width = 70, height = 40)
+ 
+    root2 = tkinter.Toplevel(root)
+    root2.title("Delete Guest")
+    root2.resizable(False, False)
+    root2.geometry("300x200")
+
+    ttk.Label(root2, text = "Delete Guest Record", font = ('Segoe UI', 20)).place(x= 15,y = 10)
+    ttk.Label(root2, text = "Guest Name", font = ('Segoe UI', 12)).place(x = 25, y = 78)
+
+    delEntry = ttk.Entry(root2)
+    delEntry.place(x = 125, y = 75)
+
+    updButton = ttk.Button(root2, text = 'Delete', command = delCommand)
+    updButton.place(x = 115, y = 138)
+
+    sv.use_dark_theme()
+
 
 def checkOnline():
     def show():
@@ -252,8 +290,8 @@ def funcLogin():     #checks your usernames and passwords
         gRecord = ttk.Button(root1, text = "Show Guest Records", command = gRecords)
         gRecord.place(x = 35, y = 120, width = 230, height =  42)
 
-        graph = ttk.Button(root1, text = 'Booking Mode Graph', command = graphs)
-        graph.place(x = 35, y = 175, width = 230, height = 42)
+        gDelete = ttk.Button(root1, text = 'Delete Guest Record', command = guestDelete)
+        gDelete.place(x = 35, y = 175, width = 230, height = 42)
 
         ttk.Label(root1, text = 'Check-in/Check-out', font = ('Segoe UI', 15)).place(x = 35, y = 240)
 
