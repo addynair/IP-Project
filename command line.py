@@ -94,7 +94,7 @@ def graphSalary():
     for i in cursor:
           Name.append(i[0])
           Salary.append(i[1])
-
+ 
     plt.style.use('dark_background')
     plt.bar(Name, Salary)
     plt.ylim(0, 80000)
@@ -102,6 +102,8 @@ def graphSalary():
     plt.ylabel("Salary")
     plt.title("Salary graph")
     plt.style.use('dark_background')
+    mng = plt.get_current_fig_manager()
+    mng.window.state('zoomed')
     plt.show()
     
 
@@ -222,7 +224,7 @@ while True:
             deleteGuest()
         elif guestMenu == 4:
             print("Select from one of these options (use numbers 1 to  2 )")        
-            print("1.  Profit graph")
+            print("1. Profit graph")
             print("2. Salary graph")
             graphMenu = int(input("Enter the required selection: "))
             if graphMenu == 1:

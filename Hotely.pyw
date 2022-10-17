@@ -240,7 +240,7 @@ def cmdLine():
         if result:
             root1.withdraw()
             root2.withdraw()
-            os.startfile("open beta.py")
+            os.startfile("command line.py")
         else:
             messagebox.showerror('Error', 'Username/Password is incorrect')
 
@@ -337,14 +337,14 @@ root = tkinter.Tk()
 root.title("Login")
 root.geometry("500x400")
 root.resizable(False, False)
-photo = ImageTk.PhotoImage(Image.open('smol logo.png'))     
+photo = ImageTk.PhotoImage(Image.open('Assets\smol logo.png'))     
 root.iconphoto(True, photo)
 
 style = ttk.Style()
 style.configure("Accent.TButton")
 global user; global pwd
 
-img = ImageTk.PhotoImage(Image.open("logo.png"))
+img = ImageTk.PhotoImage(Image.open("Assets\logo.png"))
 lab = ttk.Label(root, image = img)
 lab.place(x= 63, y= 10)
 

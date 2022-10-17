@@ -26,14 +26,14 @@ root = tkinter.Tk()
 root.title("Registration")
 root.geometry("500x400")
 root.resizable(False, False)
-photo = ImageTk.PhotoImage(Image.open("register.png"))
+photo = ImageTk.PhotoImage(Image.open("Assets\register.png"))
 root.iconphoto(False, photo)
 
 style = ttk.Style()
 style.configure("Accent.TButton")
 global user; global pwd
 
-img = ImageTk.PhotoImage(Image.open("logo.png"))
+img = ImageTk.PhotoImage(Image.open("Assets\logo.png"))
 lab = ttk.Label(root, image = img)
 lab.place(x= 63, y= 10)
 
