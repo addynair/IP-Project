@@ -240,7 +240,7 @@ def cmdLine():
         if result:
             root1.withdraw()
             root2.withdraw()
-            os.startfile("command line.py")
+            os.startfile("Assets\command line.py")
         else:
             messagebox.showerror('Error', 'Username/Password is incorrect')
 

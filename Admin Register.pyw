@@ -26,7 +26,7 @@ root = tkinter.Tk()
 root.title("Registration")
 root.geometry("500x400")
 root.resizable(False, False)
-photo = ImageTk.PhotoImage(Image.open("Assets\register.png"))
+photo = ImageTk.PhotoImage(Image.open("Assets\Register.png"))
 root.iconphoto(False, photo)
 
 style = ttk.Style()
