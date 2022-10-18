@@ -4,9 +4,6 @@ import pandas as pd
 from matplotlib import pyplot as plt 
 from mysql import connector as sql 
 import warnings as w 
-from tkinter import ttk 
-from tkinter import *
-import sv_ttk as sv
 
 #make the connection here 
 w.filterwarnings('ignore')                                                      #removes SQLAlchemy warning 
@@ -76,6 +73,39 @@ def deleteGuest():
     connect.commit()
     read = pd.read_sql("SELECT * FROM Guest", connect)
     print(read)
+
+def graphProfit():
+    months= [ 'May','June', 'July', 'August', 'September', 'October']
+    profit= [20000, 90000, 70000, 90000, 80000, 120000]
+    plt.style.use('dark_background')
+    plt.plot(months, profit)
+    plt.title("Profits from June to October1")
+    plt.xlabel("Months")
+    plt.ylabel("Profit")
+    plt.show()
+
+
+def graphSalary():
+    cursor.execute("select name,salary from staff")
+    result = cursor.fetchall
+    Name = []
+    Salary = []
+ 
+    for i in cursor:
+          Name.append(i[0])
+          Salary.append(i[1])
+ 
+    plt.style.use('dark_background')
+    plt.bar(Name, Salary)
+    plt.ylim(0, 80000)
+    plt.xlabel("Names of staff members")
+    plt.ylabel("Salary")
+    plt.title("Salary graph")
+    plt.style.use('dark_background')
+    mng = plt.get_current_fig_manager()
+    mng.window.state('zoomed')
+    plt.show()
+    
 
 def addStaff():
     data=[]
@@ -160,21 +190,13 @@ def updateSalary():
     read = pd.read_sql("SELECT * FROM staff", connect)
     print(read)
     
-def graphProfit():
-    months= [ 'May','June', 'July', 'August', 'September', 'October']
-    profit= [20000, 90000, 70000, 90000, 80000, 120000]
-    plt.plot(months, profit)
-    plt.title("Profits from June to October1")
-    plt.xlabel("Months")
-    plt.ylabel("Profit")
-    plt.show()
 
 #write the login UI code here 
 
 #write main code stuff here
 
 while True:
-    print("Use numbers 1-6 to select from any of these options. Press 0 to exit")
+    print("\nUse numbers 1-6 to select from any of these options. Press 0 to exit\n")
     print("1. Guest Data")
     print("2. Check-in/Check-out")
     print("3. Payment amounts")
@@ -188,7 +210,7 @@ while True:
         break 
 
     elif menu == 1:
-        print("Select from one of these options (use numbers 1-4)")
+        print("\nSelect from one of these options (use numbers 1-4)\n")
         print("1. Show all guest records")
         print("2. Add a guest record")
         print("3. Delete a guest record")
@@ -202,16 +224,16 @@ while True:
             deleteGuest()
         elif guestMenu == 4:
             print("Select from one of these options (use numbers 1 to  2 )")        
-            print("1.  Profit graph")
-            print("2. Mode of booking graph")
+            print("1. Profit graph")
+            print("2. Salary graph")
             graphMenu = int(input("Enter the required selection: "))
             if graphMenu == 1:
                 graphProfit()
             elif graphMenu == 2:
-                print("Profit")
+                graphSalary()
 
     elif menu == 2:
-        print("Select from one of these options (use numbers 1-2)")
+        print("\nSelect from one of these options (use numbers 1-2)\n")
         print("1. Online Check-in/Check-out")
         print("2. Reserved Check-in/Check-out")
         checkMenu = int(input("Enter the required selection: "))
@@ -224,7 +246,7 @@ while True:
         payments()
 
     elif menu == 4:
-        print("Select from one of these options (use numbers 1-3)")
+        print("\nSelect from one of these options (use numbers 1-3)\n")
         print("1. Show all staff records")
         print("2. Add a staff record")
         print("3. Delete a staff record")
@@ -240,7 +262,7 @@ while True:
         staffSalary()
 
     elif menu == 6:
-        print("\n Select from one of these options (use numbers 1-) \n ")
+        print("\nSelect from one of these options (use numbers 1-4)\n")
         print("1. Update the Room type of a guest")
         print("2. Update the Check-out date of the guest")
         print('3. Update the Room number of the guest')
@@ -254,6 +276,6 @@ while True:
             updateRoomno()
         elif upd == 4:
             updateSalary()
-        else:
-            print("Invalid option")
+    else:
+        print("Invalid option")
     
