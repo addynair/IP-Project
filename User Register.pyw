@@ -96,6 +96,7 @@ lab = ttk.Label(root, image = img)
 lab.place(x= 63, y= 5)
 
 photo = ImageTk.PhotoImage(Image.open('Assets\smol logo.png'))     
+
 root.iconphoto(True, photo)
 
 uReg = ttk.Button(root, text = 'User Registration', style = 'Accent.TButton', command  = regUI).place(x = 130, y = 210, width = 230, height = 42)
