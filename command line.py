@@ -79,7 +79,7 @@ def graphProfit():
     profit= [20000, 90000, 70000, 90000, 80000, 120000]
     plt.style.use('dark_background')
     plt.plot(months, profit)
-    plt.title("Profits from June to October 1")
+    plt.title("Profits from June to October1")
     plt.xlabel("Months")
     plt.ylabel("Profit")
     plt.show()
