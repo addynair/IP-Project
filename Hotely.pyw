@@ -1,5 +1,3 @@
-#import stuff here
-
 from tkinter import mainloop, ttk, messagebox
 import tkinter
 from PIL import ImageTk, Image
@@ -15,7 +13,7 @@ connect = sql.connect(host='localhost',
                       database="Hotel")
 cursor = connect.cursor()
 
-#define stuff here
+#define stuff
 
 
 def regUI():
@@ -45,7 +43,7 @@ def regUI():
         cursor.execute(sq, cust)
         connect.commit()
         messagebox.showinfo('Yay!', 'Guest Addition Successful')
-        root2.destroy()
+        root.destroy()
 
     root2 = tkinter.Toplevel(root)
     root2.title("User Registration")
@@ -123,16 +121,15 @@ lab = ttk.Label(root, image=img)
 lab.place(x=63, y=5)
 
 photo = ImageTk.PhotoImage(Image.open('Assets\smol logo.png'))
+
 root.iconphoto(True, photo)
 
 uReg = ttk.Button(root,
                   text='User Registration',
                   style='Accent.TButton',
                   command=regUI).place(x=130, y=210, width=230, height=42)
-
 adReg = ttk.Button(root, text='Administrator Registration',
                    command=adminReg).place(x=130, y=270, width=230, height=42)
-
 adLogin = ttk.Button(root, text='Administrator Login',
                      command=adminLogin).place(x=130,
                                                y=330,
