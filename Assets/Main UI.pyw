@@ -6,6 +6,7 @@ from PIL import ImageTk, Image
 import sv_ttk as sv
 from mysql import connector as sql
 import os
+import sys
 
 #make the mysql connection here
 
@@ -131,16 +132,16 @@ def checkOnline():
                                 CheckoutDate, RoomNo, BookingSource,
                                 NetPayment))  #to TreeView
 
-    root2 = tkinter.Toplevel(root)           #things required
+    root2 = tkinter.Toplevel(root)  #things required
     root2.title("Checkin/Checkout Details")  #for the
-    root2.resizable(False, False)            #frame
+    root2.resizable(False, False)  #frame
     label = ttk.Label(root2,
                       text="Online Checkin/Checkout",
                       font=("Segoe UI Variable Display",
                             15)).grid(row=0, columnspan=1)
     cols = ('Guest ID', 'Guest Name', 'Room Type', 'Checkin Date',
             'Checkout Date', 'Room Number', 'Booking Source', 'Net Payment')
-            
+
     tree = ttk.Treeview(root2, columns=cols, show='headings')
     tree.column("#1", width=100)
     tree.column("#2", width=100)
@@ -245,7 +246,7 @@ def roomNo():
         query = "UPDATE guest SET RoomNo  = %s WHERE GuestName = %s"
         val = (data)
         cursor.execute(query, val)  #executes query
-        connect.commit()            #commits to database
+        connect.commit()  #commits to database
         messagebox.showinfo('Yay', 'Update Successful')
         root2.destroy()
 
@@ -333,7 +334,12 @@ def cmdLine():
         if result:
             root1.withdraw()
             root2.withdraw()
-            os.startfile("Assets\command line.py")
+            if sys.platform == "win32":
+                os.startfile('Assets\command line.py')
+            else:
+                opener = "open" if sys.platform == "darwin" else "xdg-open"
+                subprocess.call([opener, 'Assets\command line.py'])
+            #os.startfile("Assets\command line.py")
         else:
             messagebox.showerror('Error', 'Username/Password is incorrect')
 
@@ -370,7 +376,7 @@ def cmdLine():
 def funcLogin():  #checks your usernames and passwords
     global root1
     uname = user.get()  #fetches username
-    pw = pwd.get()      #fetches password
+    pw = pwd.get()  #fetches password
 
     quer = 'SELECT * FROM Login WHERE Username = %s AND Password = %s'
     cursor.execute(quer, [(uname), (pw)])
@@ -389,10 +395,10 @@ def funcLogin():  #checks your usernames and passwords
                   text="Welcome,",
                   font=('Segoe UI Variable Display', 35)).place(x=25,
                                                                 y=10)  #Opening
-        ttk.Label(root1,                                               #Text
-                  text=uname,
-                  font=('Segoe UI Variable Display', 35,
-                        'bold')).place(x=240, y=10)                      
+        ttk.Label(
+            root1,  #Text
+            text=uname,
+            font=('Segoe UI Variable Display', 35, 'bold')).place(x=240, y=10)
 
         ttk.Label(root1,
                   text='Guest Data',
@@ -457,9 +463,9 @@ def funcLogin():  #checks your usernames and passwords
 
     elif uname == '':  #no username
         messagebox.showerror('Oh no :(', "Please enter a username")
-    elif pw == '':     #no password
+    elif pw == '':  #no password
         messagebox.showerror('Oh no :(', "Please enter a password")
-    else:              #wrong username/password
+    else:  #wrong username/password
         messagebox.showerror(
             "Oh no :(", "Your username or password is incorrect, try again")
         return False

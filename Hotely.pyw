@@ -1,9 +1,12 @@
+#import stuff here
+
 from tkinter import mainloop, ttk, messagebox
 import tkinter
 from PIL import ImageTk, Image
 from mysql import connector as sql
 import sv_ttk as sv
 import os
+import sys
 
 #make the mysql connection here
 
@@ -101,12 +104,22 @@ def regUI():
 
 def adminReg():
     root.withdraw()
-    os.startfile('Assets\Admin Register.pyw')
+    if sys.platform == "win32":
+        os.startfile('Assets\Admin Register.pyw')
+    else:
+        opener = "open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([opener, 'Assets\Admin Register.pyw'])
+    #os.startfile('Assets\Admin Register.pyw')
 
 
 def adminLogin():
     root.withdraw()
-    os.startfile('Assets\Main UI.pyw')
+    if sys.platform == "win32":
+        os.startfile('Assets\Main UI.pyw')
+    else:
+        opener = "open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.call([opener, 'Assets\Main UI.pyw'])
+    #os.startfile('Assets\Main UI.pyw')
 
 
 #UI Code
