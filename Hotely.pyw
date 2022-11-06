@@ -46,7 +46,7 @@ def regUI():
         cursor.execute(sq, cust)
         connect.commit()
         messagebox.showinfo('Yay!', 'Guest Addition Successful')
-        root.destroy()
+        root2.destroy()
 
     root2 = tkinter.Toplevel(root)
     root2.title("User Registration")
