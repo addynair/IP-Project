@@ -4,6 +4,8 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from mysql import connector as sql
 import warnings as w
+import os
+import sys 
 
 #make the connection here
 
@@ -219,7 +221,8 @@ while True:
     print("3. Payment amounts")
     print("4. Staff Details ")
     print("5. Staff salary")
-    print("6. Updates")
+    print("6. Update Data")
+    print("7. Credits")
     menu = int(input("Enter the required selection: "))
 
     if menu == 0:
@@ -293,5 +296,13 @@ while True:
             updateRoomno()
         elif upd == 4:
             updateSalary()
+        
+    elif menu == 7:
+        if sys.platform == "win32":
+            os.startfile('Assets\Credits.mp4')
+        else:
+            opener = "open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, 'Assets\Admin Register.pyw'])
+
     else:
-        print("Invalid option")
+        print("\nInvalid option\n")

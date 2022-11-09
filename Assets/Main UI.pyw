@@ -436,7 +436,7 @@ def funcLogin():  #checks your usernames and passwords
         payment.place(x=450, y=120, width=230, height=42)
 
         ttk.Label(root1,
-                  text='Updates',
+                  text='Update Data',
                   font=('Segoe UI Variable Display', 15)).place(x=450, y=240)
 
         roomNO = ttk.Button(root1, text='Update Room Number', command=roomNo)
