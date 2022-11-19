@@ -87,11 +87,14 @@ def guestDelete():
         root3.geometry("300x170")
         root3.resizable(False, False)
 
-        ttk.Label(root3, text='Are you sure that you',
-                  font=('SegoeUI', 19)).place(x=27, y=10)
+        ttk.Label(root3,
+                  text='Are you sure that you',
+                  font=('SegoeUI', 19),
+                  background="#000000").place(x=27, y=10)
         ttk.Label(root3,
                   text='want to delete this guest?',
-                  font=('SegoeUI', 19)).place(x=7, y=47)
+                  font=('SegoeUI', 19),
+                  background="#000000").place(x=7, y=47)
 
         y = ttk.Button(root3, text="Yes", command=delRecord).place(x=55,
                                                                    y=100,
@@ -100,6 +103,12 @@ def guestDelete():
         n = ttk.Button(root3, text='No', style='Accent.TButton',
                        command=close).place(x=155, y=100, width=70, height=40)
 
+        root3.configure(bg='#000000')
+        root3.wm_attributes("-transparent", "#000000")
+        root3.update()
+        HWND = ctypes.windll.user32.GetParent(root3.winfo_id())
+        win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
+
     root2 = tkinter.Toplevel(root)
     root2.title("Delete Guest")
     root2.resizable(False, False)
@@ -107,15 +116,24 @@ def guestDelete():
 
     ttk.Label(root2,
               text="Delete Guest Record",
-              font=('Segoe UI Variable Display', 20)).place(x=15, y=10)
-    ttk.Label(root2, text="Guest Name",
-              font=('Segoe UI Variable Display', 12)).place(x=25, y=78)
+              font=('Segoe UI Variable Display', 20),
+              background="#000000").place(x=15, y=10)
+    ttk.Label(root2,
+              text="Guest Name",
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=25, y=78)
 
     delEntry = ttk.Entry(root2)
     delEntry.place(x=125, y=75)
 
     updButton = ttk.Button(root2, text='Delete', command=delCommand)
     updButton.place(x=115, y=138)
+
+    root2.configure(bg='#000000')
+    root2.wm_attributes("-transparent", "#000000")
+    root2.update()
+    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
+    win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
 
@@ -255,12 +273,12 @@ def roomNo():
 
     ttk.Label(root2,
               text="Update Room Number",
-              font=('Segoe UI Variable Display', 20)).place(x=15, y=10)
+              font=('Segoe UI Variable Display', 20), background= "#000000").place(x=15, y=10)
     ttk.Label(root2,
               text="Room Number",
-              font=('Segoe UI Variable Display', 12)).place(x=15, y=120)
+              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=120)
     ttk.Label(root2, text='Guest Name',
-              font=('Segoe UI Variable Display', 12)).place(x=15, y=75)
+              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=75)
 
     updEntry = ttk.Entry(root2)
     updEntry.place(x=125, y=120)
@@ -272,6 +290,12 @@ def roomNo():
                            style='Accent.TButton',
                            command=update)
     updButton.place(x=115, y=175)
+
+    root2.configure(bg = '#000000')
+    root2.wm_attributes("-transparent", "#000000")
+    root2.update()
+    HWND=ctypes.windll.user32.GetParent(root2.winfo_id())
+    win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
 
@@ -299,15 +323,15 @@ def updCheckout():
 
     ttk.Label(root2,
               text="Update Checkout Date",
-              font=('Segoe UI Variable Display', 20)).place(x=15, y=10)
+              font=('Segoe UI Variable Display', 20), background= "#000000").place(x=15, y=10)
     ttk.Label(root2,
               text="Checkout Date",
-              font=('Segoe UI Variable Display', 12)).place(x=15, y=120)
+              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=120)
     ttk.Label(root2, text='Guest Name',
-              font=('Segoe UI Variable Display', 12)).place(x=15, y=75)
+              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=75)
     ttk.Label(root2,
               text='New Payment',
-              font=('Segoe UI Variable Display', 12)).place(x=15, y=165)
+              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=165)
 
     updEntry = ttk.Entry(root2)
     updEntry.place(x=125, y=120)
@@ -321,6 +345,12 @@ def updCheckout():
                            style='Accent.TButton',
                            command=update)
     updButton.place(x=115, y=220)
+
+    root2.configure(bg = '#000000')
+    root2.wm_attributes("-transparent", "#000000")
+    root2.update()
+    HWND=ctypes.windll.user32.GetParent(root2.winfo_id())
+    win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
 
@@ -353,11 +383,17 @@ def cmdLine():
 
     ttk.Label(root2,
               text="Administrator Login",
-              font=('Segoe UI Variable Display', 20)).place(x=10, y=10)
+              font=('Segoe UI Variable Display', 20), background= "#000000").place(x=10, y=10)
     ttk.Label(root2, text="Username",
-              font=('Segoe UI Variable Display', 12)).place(x=15, y=75)
+              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=75)
     ttk.Label(root2, text='Password',
-              font=('Segoe UI Variable Display', 12)).place(x=15, y=120)
+              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=120)
+    
+    root2.configure(bg = '#000000')
+    root2.wm_attributes("-transparent", "#000000")
+    root2.update()
+    HWND=ctypes.windll.user32.GetParent(root2.winfo_id())
+    win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     user1 = ttk.Entry(root2)
     user1.place(x=125, y=75)
