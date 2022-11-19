@@ -273,12 +273,16 @@ def roomNo():
 
     ttk.Label(root2,
               text="Update Room Number",
-              font=('Segoe UI Variable Display', 20), background= "#000000").place(x=15, y=10)
+              font=('Segoe UI Variable Display', 20),
+              background="#000000").place(x=15, y=10)
     ttk.Label(root2,
               text="Room Number",
-              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=120)
-    ttk.Label(root2, text='Guest Name',
-              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=75)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=15, y=120)
+    ttk.Label(root2,
+              text='Guest Name',
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=15, y=75)
 
     updEntry = ttk.Entry(root2)
     updEntry.place(x=125, y=120)
@@ -291,10 +295,10 @@ def roomNo():
                            command=update)
     updButton.place(x=115, y=175)
 
-    root2.configure(bg = '#000000')
+    root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND=ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
@@ -323,15 +327,20 @@ def updCheckout():
 
     ttk.Label(root2,
               text="Update Checkout Date",
-              font=('Segoe UI Variable Display', 20), background= "#000000").place(x=15, y=10)
+              font=('Segoe UI Variable Display', 20),
+              background="#000000").place(x=15, y=10)
     ttk.Label(root2,
               text="Checkout Date",
-              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=120)
-    ttk.Label(root2, text='Guest Name',
-              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=75)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=15, y=120)
+    ttk.Label(root2,
+              text='Guest Name',
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=15, y=75)
     ttk.Label(root2,
               text='New Payment',
-              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=165)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=15, y=165)
 
     updEntry = ttk.Entry(root2)
     updEntry.place(x=125, y=120)
@@ -346,10 +355,10 @@ def updCheckout():
                            command=update)
     updButton.place(x=115, y=220)
 
-    root2.configure(bg = '#000000')
+    root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND=ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
@@ -383,16 +392,21 @@ def cmdLine():
 
     ttk.Label(root2,
               text="Administrator Login",
-              font=('Segoe UI Variable Display', 20), background= "#000000").place(x=10, y=10)
-    ttk.Label(root2, text="Username",
-              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=75)
-    ttk.Label(root2, text='Password',
-              font=('Segoe UI Variable Display', 12), background= "#000000").place(x=15, y=120)
-    
-    root2.configure(bg = '#000000')
+              font=('Segoe UI Variable Display', 20),
+              background="#000000").place(x=10, y=10)
+    ttk.Label(root2,
+              text="Username",
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=15, y=75)
+    ttk.Label(root2,
+              text='Password',
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=15, y=120)
+
+    root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND=ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     user1 = ttk.Entry(root2)
