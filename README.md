@@ -37,6 +37,6 @@ win32mica (Highly-experimental)
 
 Pull requests are very much appreciated. Do open discussions before making major changes (commiting them to the main branch)
 
-##Notice
+## Notice
 
 You can access a highly experimental build of this application, with full Mica support (for Windows 11 Only), by checking out the Highly-experimental branch 
