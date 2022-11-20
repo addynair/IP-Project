@@ -58,29 +58,41 @@ def regUI():
 
     ttk.Label(root2,
               text="Enter User Details",
-              font=('Segoe UI Variable Display', 20)).place(x=15, y=10)
+              font=('Segoe UI Variable Display', 20),
+              background="#000000").place(x=15, y=10)
 
-    ttk.Label(root2, text='GuestID',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=78)
-    ttk.Label(root2, text='Guest Name',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=123)
-    ttk.Label(root2, text='Room Type',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=168)
+    ttk.Label(root2,
+              text='GuestID',
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=78)
+    ttk.Label(root2,
+              text='Guest Name',
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=123)
+    ttk.Label(root2,
+              text='Room Type',
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=168)
     ttk.Label(root2,
               text='Check-in Date',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=213)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=213)
     ttk.Label(root2,
               text='Check-out Date',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=258)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=258)
     ttk.Label(root2,
               text='Room Number',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=303)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=303)
     ttk.Label(root2,
               text='Booking Source',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=348)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=348)
     ttk.Label(root2,
               text='Net Payment',
-              font=('Segoe UI Variable Display', 12)).place(x=20, y=393)
+              font=('Segoe UI Variable Display', 12),
+              background="#000000").place(x=20, y=393)
 
     id = ttk.Entry(root2)
     id.place(x=133, y=75)
@@ -103,6 +115,12 @@ def regUI():
                text='Add Guest',
                style='Accent.TButton',
                command=regFunc).place(x=110, y=445)
+
+    root2.configure(bg='#000000')
+    root2.wm_attributes("-transparent", "#000000")
+    root2.update()
+    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
+    win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
 
 def adminReg():
@@ -151,7 +169,6 @@ adLogin = ttk.Button(root, text='Administrator Login',
                                                y=330,
                                                width=230,
                                                height=42)
-
 
 root.configure(bg='#000000')
 root.wm_attributes("-transparent", "#000000")
