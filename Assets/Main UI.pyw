@@ -37,6 +37,7 @@ def gRecords():
     root2 = tkinter.Toplevel(root)  #things
     root2.title("Guest Records")  #required for
     root2.resizable(False, False)  #the frame
+    root2.focus_set()
     label = ttk.Label(root2,
                       text="Guest Records",
                       font=("Segoe UI Variable Display",
@@ -82,6 +83,7 @@ def guestDelete():
         root3.title("Confirmation")
         root3.geometry("300x170")
         root3.resizable(False, False)
+        root3.focus_set()
 
         ttk.Label(root3, text='Are you sure that you',
                   font=('SegoeUI', 19)).place(x=27, y=10)
@@ -100,6 +102,7 @@ def guestDelete():
     root2.title("Delete Guest")
     root2.resizable(False, False)
     root2.geometry("300x200")
+    root2.focus_set()
 
     ttk.Label(root2,
               text="Delete Guest Record",
@@ -135,6 +138,7 @@ def checkOnline():
     root2 = tkinter.Toplevel(root)  #things required
     root2.title("Checkin/Checkout Details")  #for the
     root2.resizable(False, False)  #frame
+    root2.focus_set()
     label = ttk.Label(root2,
                       text="Online Checkin/Checkout",
                       font=("Segoe UI Variable Display",
@@ -178,6 +182,7 @@ def checkOffline():
     root2 = tkinter.Toplevel(root)
     root2.title("Checkin/Checkout Details")
     root2.resizable(False, False)
+    root2.focus_set()
     label = ttk.Label(root2,
                       text="Offline Checkin/Checkout",
                       font=("Segoe UI Variable Display",
@@ -215,6 +220,7 @@ def netPayment():
     root2 = tkinter.Toplevel(root)
     root2.title("Payment")
     root2.resizable(False, False)
+    root2.focus_set()
     label = ttk.Label(root2,
                       text="Payment Details",
                       font=("Segoe UI Variable Display",
@@ -236,6 +242,7 @@ def roomNo():
     root2.title("Update")
     root2.resizable(False, False)
     root2.geometry("300x220")
+    root2.focus_set()
 
     def update():
         lab = updEntry.get()
@@ -278,6 +285,7 @@ def updCheckout():
     root2.title("Update")
     root2.resizable(False, False)
     root2.geometry("300x260")
+    root2.focus_set()
 
     def update():
         lab = updEntry.get()
@@ -347,6 +355,7 @@ def cmdLine():
     root2.title("Update")
     root2.resizable(False, False)
     root2.geometry("300x220")
+    root2.focus_set()
 
     ttk.Label(root2,
               text="Administrator Login",
@@ -389,6 +398,7 @@ def funcLogin():  #checks your usernames and passwords
         root1.title("Hotely")
         root1.geometry("800x450")
         root1.resizable(False, False)
+        root1.focus_set()
 
         #spaghetti code begins
         ttk.Label(root1,

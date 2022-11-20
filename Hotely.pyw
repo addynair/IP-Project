@@ -52,6 +52,7 @@ def regUI():
     root2.title("User Registration")
     root2.resizable(False, False)
     root2.geometry("300x500")
+    root2.focus_set()
 
     ttk.Label(root2,
               text="Enter User Details",
