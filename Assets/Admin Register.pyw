@@ -73,7 +73,7 @@ reg.place(x=225, y=320)
 root.configure(bg='#000000')
 root.wm_attributes("-transparent", "#000000")
 root.update()
-HWND = int(root.frame(), 16)
+HWND = root.frame()
 win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
 sv.use_dark_theme()

@@ -55,6 +55,7 @@ def regUI():
     root2.title("User Registration")
     root2.resizable(False, False)
     root2.geometry("300x500")
+    root2.focus_set()
 
     ttk.Label(root2,
               text="Enter User Details",
@@ -119,7 +120,7 @@ def regUI():
     root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND = int(root2.frame(), 16)
+    HWND = root2.frame()
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
 
@@ -174,7 +175,7 @@ root.configure(bg='#000000')
 root.wm_attributes("-transparent", "#000000")
 root.update()
 
-HWND = int(root.frame(), 16)
+HWND = root.frame()
 win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
 sv.use_dark_theme()
