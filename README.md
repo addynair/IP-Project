@@ -1,4 +1,4 @@
-# Hotel Management
+# Hotely
 
 This is a Python project that focuses on easing the task of managing a hotel.
 
@@ -28,8 +28,6 @@ mysql-connector
 sv_ttk 
 
 Pillow
-
-ctypes
 
 win32mica (Highly-experimental)
 
