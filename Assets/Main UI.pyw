@@ -106,7 +106,7 @@ def guestDelete():
         root3.configure(bg='#000000')
         root3.wm_attributes("-transparent", "#000000")
         root3.update()
-        HWND = ctypes.windll.user32.GetParent(root3.winfo_id())
+        HWND = int(root3.frame(), 16)
         win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     root2 = tkinter.Toplevel(root)
@@ -132,7 +132,7 @@ def guestDelete():
     root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = int(root2.frame(), 16)
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
@@ -298,7 +298,7 @@ def roomNo():
     root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = int(root2.frame(), 16)
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
@@ -358,7 +358,7 @@ def updCheckout():
     root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = int(root2.frame(), 16)
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     sv.use_dark_theme()
@@ -406,7 +406,7 @@ def cmdLine():
     root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = int(root2.frame(), 16)
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
     user1 = ttk.Entry(root2)
@@ -581,7 +581,7 @@ login.place(x=225, y=320)
 root.configure(bg='#000000')
 root.wm_attributes("-transparent", "#000000")
 root.update()
-HWND = ctypes.windll.user32.GetParent(root.winfo_id())
+HWND = int(root.frame(), 16)
 win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
 sv.use_dark_theme()

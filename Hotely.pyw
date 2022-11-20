@@ -119,7 +119,7 @@ def regUI():
     root2.configure(bg='#000000')
     root2.wm_attributes("-transparent", "#000000")
     root2.update()
-    HWND = ctypes.windll.user32.GetParent(root2.winfo_id())
+    HWND = int(root2.frame(), 16)
     win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
 
@@ -173,7 +173,8 @@ adLogin = ttk.Button(root, text='Administrator Login',
 root.configure(bg='#000000')
 root.wm_attributes("-transparent", "#000000")
 root.update()
-HWND = ctypes.windll.user32.GetParent(root.winfo_id())
+
+HWND = int(root.frame(), 16)
 win32mica.ApplyMica(HWND, ColorMode=MICAMODE.DARK)
 
 sv.use_dark_theme()
