@@ -35,6 +35,11 @@ ctypes
 
 win32mica (Highly-experimental)
 
+## Bugs found
+- No cross platform support
+- Suboptimal performance
+- Issues related to focussing a window (after minimising and restoring again)
+
 ## Contributions
 
 Pull requests are very much appreciated. Do open discussions before making major changes (commiting them to the main branch)
