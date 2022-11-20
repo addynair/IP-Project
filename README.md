@@ -31,9 +31,12 @@ sv_ttk
 
 Pillow
 
-ctypes
-
 win32mica (Highly-experimental)
+
+## Bugs found
+- No cross platform support
+- Suboptimal performance
+- Issues related to focussing a window (after minimising and restoring again)
 
 ## Contributions
 
