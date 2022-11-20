@@ -451,6 +451,7 @@ def funcLogin():  #checks your usernames and passwords
         root1.title("Hotely")
         root1.geometry("800x450")
         root1.resizable(False, False)
+        root1.focus_force()
 
         #spaghetti code begins
         ttk.Label(root1,
