@@ -23,8 +23,6 @@ sv_ttk
 
 Pillow
 
-ctypes
-
 win32mica (Highly-experimental)
 
 ## Contributions
