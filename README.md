@@ -38,25 +38,25 @@ This is the updated Mica-based UI. This UI picks colours from your wallpaper dyn
 
 ## Language used 
 
-Python
+- Python
 
-SQL 
+- SQL 
 
 ## Python Modules used
 
-PANDAS 
+- PANDAS 
 
-Matplotlib
+- Matplotlib
 
-Tkinter 
+- Tkinter 
 
-mysql-connector
+- mysql-connector
 
-sv_ttk 
+- sv_ttk 
 
-Pillow
+- Pillow
 
-win32mica (Highly-experimental)
+- win32mica (Highly-experimental)
 
 ## Bugs found
 - No cross platform support
