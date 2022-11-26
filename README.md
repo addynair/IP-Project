@@ -58,8 +58,12 @@ This is the updated Mica-based UI. This UI picks colours from your wallpaper dyn
 
 - win32mica (Highly-experimental)
 
+## Limitations
+
+- Removed cross-platform support (Windows 11 Only)
+
 ## Bugs found
-- No cross platform support
+
 - Suboptimal performance
 - Issues related to focussing a window (after minimising and restoring again)
 
