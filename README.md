@@ -9,7 +9,7 @@ This is a Python project that focuses on easing the task of managing a hotel.
 - Powerful administrator tools at your fingertips
 - Completely open-source code 
 
-## Language used 
+## Languages used 
 
 - Python
 
