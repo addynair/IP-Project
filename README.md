@@ -9,21 +9,26 @@ This is a Python project that focuses on easing the task of managing a hotel.
 - Powerful administrator tools at your fingertips
 - Completely open-source code 
 
+## Languages used
+
+- Python
+- SQL
+
 ## Python Modules used
 
-PANDAS 
+- PANDAS 
 
-Matplotlib
+- Matplotlib
 
-Tkinter 
+- Tkinter 
 
-mysql-connector
+- mysql-connector
 
-sv_ttk 
+- sv_ttk 
 
-Pillow
+- Pillow
 
-win32mica (Highly-experimental)
+- win32mica (Highly-experimental)
 
 ## Contributions
 
