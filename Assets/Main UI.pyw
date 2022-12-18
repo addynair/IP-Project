@@ -354,7 +354,7 @@ def main():
         updEntry = ttk.Entry(root2)
         updEntry.place(x=125, y=120, width= 145)
         nameEntry = ttk.Entry(root2)
-        nameEntry.place(x=125, y=75)
+        nameEntry.place(x=125, y=75, width= 145)
         payEntry = ttk.Entry(root2)
         payEntry.place(x=125, y=165, width= 145)
 
